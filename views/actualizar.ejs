@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="/bootstrap.min.css">
+</head>
+<body>
+    
+            <section class="container">
+                <div class="row mt-5">
+                    <div class="col-md-12">
+                        <div class="card col-md-10" >
+                             <div class="card-body">
+                                <form action="/actualizar/<%= parametro%>/?_method=PUT" method="POST"> 
+                                    <% Peliculas.forEach(function(e) { %>
+                                        <% if( parametro == e._id ) { %>
+                                            <div class="form-group mb-3">
+                                                <input type="text" name="nombre" value="<%= e.nombre %>" class="form-control">
+                                            </div>
+                                            <div class="form-group mb-3">
+                                                <input type="text" name="categoria" value=" <%= e.categoria%> " class="form-control">
+                                            </div>
+                                            <div class="form-group mb-3">
+                                                <input type="text" name="imagen" value=" <%= e.imagen%> " class="form-control">
+                                            </div>
+                                            <div>
+                                                <button type="submit" class="btn btn-primary"><a href="/crud"></a>Actualizar</button>
+                                            </div>
+                                        <% }%>
+                                    <% }) %>
+                                </form> 
+                            </div> 
+                        </div> 
+                    </div>
+                </div>
+            </section>
+
+
+</body>
+</html>

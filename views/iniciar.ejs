@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Iniciar Sesion</h1>
+    <form action="http://localhost:3000/inicioSesionUsuario" method="post" id="form">
+        <section>
+            <label for="Correo">Correo</label>
+            <input type="text" name="correo" id="Correo">            
+        </section>
+
+        <section>
+            <label for="Password">Contraseña</label>
+            <input type="password" name="contraseña" id="contraseña">
+        </section>
+        <section>
+            <a href="/registrar" id="">Registrarse</a>
+        </section>
+        <input type="submit" value="OK">
+    </form>
+</body>
+</html>

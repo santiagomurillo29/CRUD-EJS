@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid navbar-custom" style="display: flex; justify-content: space-around;">
+            <span class="navbar-brand"> <%= noUsuario %> </span>
+            <a class="navbar-text mx-3" href="/registro">Insertar</a>
+            <a class="nav-link mx-3" href="/cerrarSesion">Cerrar Sesión</a>
+        </div>
+    </nav>
+
+    <section class="container">
+        <div class="row mt-5">
+            <div class="col-md-12 center">
+                <div class="tabla-responsive overflow-auto" style="max-height: 400px;">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th> N°</th>
+                                <th>Nombre</th>
+                                <th>Categoria</th>
+                                <th>Imagen</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% if (peliculas) { %>
+                                <% for (var i = 0; i < peliculas.length; i++) { %>
+                                    <tr>
+                                        <td style="font-size: 8px;"> <%= peliculas[i]._id %> </td>
+                                        <td style="font-size: 10px;"> <%= peliculas[i].nombre %> </td>
+                                        <td style="font-size: 10px;"> <%= peliculas[i].categoria %> </td>
+                                        <td style="font-size: 10px;"> <%= peliculas[i].imagen %> </td>
+                                        <td>
+                                            <form method="POST" action="/delete/<%=peliculas[i]._id%>?_method=DELETE">
+                                                <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar esta película?')">DELETE</button>
+                                            </form>
+                                            <form method="GET" action="/actualizar/<%=peliculas[i]._id%>">
+                                                <a href="/actualizar/id"> <button style="margin-top: 10px;" class="btn btn-info"> UPDATE </button> </a>
+                                            </form>
+                                        </td>                                       
+                                    </tr>
+                               <% } %>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    
+</body>
+</html>
